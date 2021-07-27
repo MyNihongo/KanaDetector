@@ -27,18 +27,7 @@ jobs:
         dotnet-version: 5.0.x
           
     - name: NuGet restore
-      run: | 
-        dotnet restore MyNihongo.KanaDetector.csproj
-      working-directory: src
+      run: dotnet restore
       
     - name: Build
-      run: dotnet build Nihongo.KanaDetector.csproj -c RELEASE -v
-      working-directory: src
-      
-    - name: Run tests and generate coverage
-      uses: glennawatson/coverlet-msbuild@v1
-      with:
-        project-files: 'tests/**/*Tests*.csproj'
-        no-build: true
-        output-format: cobertura
-        configuration: 'RELEASE'
+      run: dotnet build -c RELEASE -v m

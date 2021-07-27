@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyNihongo.KanaDetector", "src\MyNihongo.KanaDetector.csproj", "{82290823-0441-431F-94D6-4FE25EE0C739}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyNihongo.KanaDetector.Tests", "tests\MyNihongo.KanaDetector.Tests.csproj", "{DBD196BC-D9CC-4DD8-8A81-C6DBB2310898}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{82290823-0441-431F-94D6-4FE25EE0C739}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82290823-0441-431F-94D6-4FE25EE0C739}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82290823-0441-431F-94D6-4FE25EE0C739}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82290823-0441-431F-94D6-4FE25EE0C739}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBD196BC-D9CC-4DD8-8A81-C6DBB2310898}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBD196BC-D9CC-4DD8-8A81-C6DBB2310898}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBD196BC-D9CC-4DD8-8A81-C6DBB2310898}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBD196BC-D9CC-4DD8-8A81-C6DBB2310898}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {566381E7-DB28-458B-B845-A5E05A3FDC19}
+	EndGlobalSection
+EndGlobal
