@@ -27,9 +27,7 @@ jobs:
         dotnet-version: 5.0.x
           
     - name: NuGet restore
-      run: dotnet restore MyNihongo.KanaDetector.csproj
-      working-directory: src
+      run: dotnet restore
       
     - name: Build
-      run: dotnet build Nihongo.KanaDetector.csproj -c RELEASE -v m
-      working-directory: src
+      run: dotnet build -c RELEASE -v m
