@@ -2,7 +2,6 @@
 * Copyright © 2021 MyNihongo
 */
 
-using System;
 using static MyNihongo.KanaDetector.Resources.Constants;
 
 namespace MyNihongo.KanaDetector.Extensions
@@ -10,35 +9,30 @@ namespace MyNihongo.KanaDetector.Extensions
 	public static class CharExtensions
 	{
 		public static bool IsHiragana(this char @this) =>
-			IsHiragana(Convert.ToInt32(@this));
+			IsHiragana(in @this);
 
 		public static bool IsKatakana(this char @this) =>
-			IsKatakana(Convert.ToInt32(@this));
+			IsKatakana(in @this);
 
-		public static bool IsKana(this char @this)
-		{
-			var @int = Convert.ToInt32(@this);
-			return IsHiragana(@int) || IsKatakana(@int);
-		}
+		public static bool IsKana(this char @this) =>
+			IsHiragana(in @this) || IsKatakana(in @this);
 
 		public static bool IsKanji(this char @this) =>
-			IsKanji(Convert.ToInt32(@this));
+			IsKanji(in @this);
 
-		public static bool IsKanaOrKanji(this char @this)
-		{
-			var @int = Convert.ToInt32(@this);
-			return IsHiragana(@int) || IsKatakana(@int) || IsKanji(@int);
-		}
+		public static bool IsKanaOrKanji(this char @this) =>
+			IsHiragana(in @this) || IsKatakana(in @this) || IsKanji(in @this);
 
-		private static bool IsHiragana(int number) =>
-			number >= Kana.HiraganaStart && number <= Kana.HiraganaEnd;
+		private static bool IsHiragana(in char @char) =>
+			@char is >= Kana.HiraganaStart and <= Kana.HiraganaEnd;
 
-		private static bool IsKatakana(int number) =>
-			number >= Kana.KatakanaStart && number <= Kana.KatakanaEnd;
+		private static bool IsKatakana(in char @char) =>
+			@char is >= Kana.KatakanaStart and <= Kana.KatakanaEnd;
 
-		private static bool IsKanji(int number) =>
-			number >= Kanji.Start && number <= Kanji.End ||
-			number >= Kanji.RareStart && number <= Kanji.RareEnd ||
-			number == Kanji.IterationMark;
+		private static bool IsKanji(in char @char) =>
+			@char is
+				>= Kanji.Start and <= Kanji.End or
+				>= Kanji.RareStart and <= Kanji.RareEnd or
+				Kanji.IterationMark;
 	}
 }
