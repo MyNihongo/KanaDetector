@@ -9,30 +9,21 @@ namespace MyNihongo.KanaDetector.Extensions
 	public static class CharExtensions
 	{
 		public static bool IsHiragana(this char @this) =>
-			IsHiragana(in @this);
+			@this is >= Kana.HiraganaStart and <= Kana.HiraganaEnd;
 
 		public static bool IsKatakana(this char @this) =>
-			IsKatakana(in @this);
+			@this is >= Kana.KatakanaStart and <= Kana.KatakanaEnd;
 
 		public static bool IsKana(this char @this) =>
-			IsHiragana(in @this) || IsKatakana(in @this);
+			@this.IsHiragana() || @this.IsKatakana();
 
 		public static bool IsKanji(this char @this) =>
-			IsKanji(in @this);
-
-		public static bool IsKanaOrKanji(this char @this) =>
-			IsHiragana(in @this) || IsKatakana(in @this) || IsKanji(in @this);
-
-		private static bool IsHiragana(in char @char) =>
-			@char is >= Kana.HiraganaStart and <= Kana.HiraganaEnd;
-
-		private static bool IsKatakana(in char @char) =>
-			@char is >= Kana.KatakanaStart and <= Kana.KatakanaEnd;
-
-		private static bool IsKanji(in char @char) =>
-			@char is
+			@this is
 				>= Kanji.Start and <= Kanji.End or
 				>= Kanji.RareStart and <= Kanji.RareEnd or
 				Kanji.IterationMark;
+
+		public static bool IsKanaOrKanji(this char @this) =>
+			@this.IsHiragana() || @this.IsKatakana() || @this.IsKanji();
 	}
 }

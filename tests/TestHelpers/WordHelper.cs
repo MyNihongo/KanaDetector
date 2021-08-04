@@ -1,5 +1,5 @@
 ﻿/*
-* © Copyright MyNihongo 2020
+* Copyright © 2021 MyNihongo
 */
 
 using MyNihongo.KanaDetector.Resources;
