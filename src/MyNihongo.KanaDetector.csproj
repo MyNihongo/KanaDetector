@@ -15,6 +15,14 @@
 		<PackageReleaseNotes>https://github.com/MyNihongo/KanaDetector/releases/</PackageReleaseNotes>
 		<PackageTags>kana, kanji, romaji, hiragana, katakana</PackageTags>
 		<PackageIcon>favico.png</PackageIcon>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\favico.png">
+			<Pack>True</Pack>
+			<PackagePath />
+		</None>
+	</ItemGroup>
 
 </Project>
