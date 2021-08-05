@@ -1,4 +1,8 @@
-﻿using FluentAssertions;
+﻿/*
+* Copyright © 2021 MyNihongo
+*/
+
+using FluentAssertions;
 using MyNihongo.KanaDetector.Extensions;
 using MyNihongo.KanaDetector.Tests.TestHelpers;
 using Xunit;
