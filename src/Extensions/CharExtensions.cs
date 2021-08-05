@@ -25,5 +25,14 @@ namespace MyNihongo.KanaDetector.Extensions
 
 		public static bool IsKanaOrKanji(this char @this) =>
 			@this.IsHiragana() || @this.IsKatakana() || @this.IsKanji();
+
+		public static bool IsRomaji(this char @this) =>
+			@this
+				is >= Romaji.EnglishStart and <= Romaji.EnglishEnd or
+				Romaji.Hepbun.CapitalA or Romaji.Hepbun.SmallA or
+				Romaji.Hepbun.CapitalI or Romaji.Hepbun.SmallI or
+				Romaji.Hepbun.CapitalU or Romaji.Hepbun.SmallU or
+				Romaji.Hepbun.CapitalE or Romaji.Hepbun.SmallE or
+				Romaji.Hepbun.CapitalO or Romaji.Hepbun.SmallO;
 	}
 }

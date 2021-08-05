@@ -9,11 +9,21 @@ namespace MyNihongo.KanaDetector.Resources
 	{
 		internal static class Romaji
 		{
-			internal const int EnglishStart = 0x0021; // !
-			internal const int EnglishEnd = 0x007f; // " "
+			internal const char EnglishStart = '!';
+			internal const char EnglishEnd = '~';
 
 			internal static class Hepbun
 			{
+				internal const char CapitalA = 'Ā';
+				internal const char SmallA = 'ā';
+				internal const char CapitalI = 'Ī';
+				internal const char SmallI = 'ī';
+				internal const char CapitalU = 'Ū';
+				internal const char SmallU = 'ū';
+				internal const char CapitalE = 'Ē';
+				internal const char SmallE = 'ē';
+				internal const char CapitalO = 'Ō';
+				internal const char SmallO = 'ō';
 			}
 		}
 
