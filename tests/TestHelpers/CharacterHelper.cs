@@ -1,5 +1,5 @@
 ﻿/*
-* © Copyright MyNihongo 2020
+* Copyright © 2021 MyNihongo
 */
 
 using System;
@@ -11,7 +11,7 @@ namespace MyNihongo.KanaDetector.Tests.TestHelpers
 	public static class CharacterHelper
 	{
 		private static readonly Lazy<IReadOnlyList<char>> HiraganaLazy =
-			new Lazy<IReadOnlyList<char>>(() => new List<char>
+			new(() => new List<char>
 			{
 				'ぁ','あ','ぃ','い','ぅ','う','ぇ','え','ぉ','お','か','が','き','ぎ','く',
 				'ぐ','け','げ','こ','ご','さ','ざ','し','じ','す','ず','せ','ぜ','そ','ぞ','た',
@@ -22,7 +22,7 @@ namespace MyNihongo.KanaDetector.Tests.TestHelpers
 			});
 
 		private static readonly Lazy<IReadOnlyList<char>> KatakanaLazy =
-			new Lazy<IReadOnlyList<char>>(() => new List<char>
+			new(() => new List<char>
 			{
 				'ァ','ア','ィ','イ','ゥ','ウ','ェ','エ','ォ','オ','カ','ガ','キ','ギ','ク',
 				'グ','ケ','ゲ','コ','ゴ','サ','ザ','シ','ジ','ス','ズ','セ','ゼ','ソ','ゾ','タ',
@@ -34,10 +34,12 @@ namespace MyNihongo.KanaDetector.Tests.TestHelpers
 			});
 
 		private static readonly Lazy<IReadOnlyList<char>> RomajiLazy =
-			new Lazy<IReadOnlyList<char>>(() => new List<char>
+			new(() => new List<char>
 			{
 				'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x' ,'y','z',
-				'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X' ,'Y','Z'
+				'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X' ,'Y','Z',
+				'ā', 'ī', 'ū', 'ē', 'ō',
+				'Ā', 'Ī', 'Ū', 'Ē', 'Ō'
 			});
 
 		public static IReadOnlyList<char> Hiragana => HiraganaLazy.Value;

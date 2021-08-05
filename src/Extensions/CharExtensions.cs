@@ -2,7 +2,6 @@
 * Copyright © 2021 MyNihongo
 */
 
-using System;
 using static MyNihongo.KanaDetector.Resources.Constants;
 
 namespace MyNihongo.KanaDetector.Extensions
@@ -10,35 +9,30 @@ namespace MyNihongo.KanaDetector.Extensions
 	public static class CharExtensions
 	{
 		public static bool IsHiragana(this char @this) =>
-			IsHiragana(Convert.ToInt32(@this));
+			@this is >= Kana.HiraganaStart and <= Kana.HiraganaEnd;
 
 		public static bool IsKatakana(this char @this) =>
-			IsKatakana(Convert.ToInt32(@this));
+			@this is >= Kana.KatakanaStart and <= Kana.KatakanaEnd;
 
-		public static bool IsKana(this char @this)
-		{
-			var @int = Convert.ToInt32(@this);
-			return IsHiragana(@int) || IsKatakana(@int);
-		}
+		public static bool IsKana(this char @this) =>
+			@this.IsHiragana() || @this.IsKatakana();
 
 		public static bool IsKanji(this char @this) =>
-			IsKanji(Convert.ToInt32(@this));
+			@this is
+				>= Kanji.Start and <= Kanji.End or
+				>= Kanji.RareStart and <= Kanji.RareEnd or
+				Kanji.IterationMark;
 
-		public static bool IsKanaOrKanji(this char @this)
-		{
-			var @int = Convert.ToInt32(@this);
-			return IsHiragana(@int) || IsKatakana(@int) || IsKanji(@int);
-		}
+		public static bool IsKanaOrKanji(this char @this) =>
+			@this.IsHiragana() || @this.IsKatakana() || @this.IsKanji();
 
-		private static bool IsHiragana(int number) =>
-			number >= Kana.HiraganaStart && number <= Kana.HiraganaEnd;
-
-		private static bool IsKatakana(int number) =>
-			number >= Kana.KatakanaStart && number <= Kana.KatakanaEnd;
-
-		private static bool IsKanji(int number) =>
-			number >= Kanji.Start && number <= Kanji.End ||
-			number >= Kanji.RareStart && number <= Kanji.RareEnd ||
-			number == Kanji.IterationMark;
+		public static bool IsRomaji(this char @this) =>
+			@this
+				is >= Romaji.EnglishStart and <= Romaji.EnglishEnd or
+				Romaji.Hepbun.CapitalA or Romaji.Hepbun.SmallA or
+				Romaji.Hepbun.CapitalI or Romaji.Hepbun.SmallI or
+				Romaji.Hepbun.CapitalU or Romaji.Hepbun.SmallU or
+				Romaji.Hepbun.CapitalE or Romaji.Hepbun.SmallE or
+				Romaji.Hepbun.CapitalO or Romaji.Hepbun.SmallO;
 	}
 }
