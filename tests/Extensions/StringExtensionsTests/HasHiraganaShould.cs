@@ -15,10 +15,6 @@ namespace MyNihongo.KanaDetector.Tests.Extensions.StringExtensionsTests
 		[InlineData("")]
 		public void ReturnFalseIsNullOrEmpty(string input)
 		{
-			input
-				.Should()
-				.BeNullOrEmpty();
-
 			var result = input.HasHiragana();
 
 			result

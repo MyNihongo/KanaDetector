@@ -68,6 +68,18 @@ namespace MyNihongo.KanaDetector.Extensions
 			return true;
 		}
 
+		public static bool IsRomaji(this string @this)
+		{
+			if (string.IsNullOrEmpty(@this))
+				return false;
+
+			for (var i = 0; i < @this.Length; i++)
+				if (!@this[i].IsRomaji())
+					return false;
+
+			return true;
+		}
+
 		#endregion
 
 		#region Has methods
@@ -127,6 +139,18 @@ namespace MyNihongo.KanaDetector.Extensions
 
 			for (var i = 0; i < @this.Length; i++)
 				if (@this[i].IsKanaOrKanji())
+					return true;
+
+			return false;
+		}
+
+		public static bool HasRomaji(this string @this)
+		{
+			if (string.IsNullOrEmpty(@this))
+				return false;
+
+			for (var i = 0; i < @this.Length; i++)
+				if (@this[i].IsRomaji())
 					return true;
 
 			return false;
