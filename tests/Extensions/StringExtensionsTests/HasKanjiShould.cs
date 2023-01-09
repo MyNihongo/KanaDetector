@@ -1,103 +1,97 @@
 ﻿/*
-* Copyright © 2021 MyNihongo
+* Copyright © 2023 MyNihongo
 */
 
-using FluentAssertions;
-using MyNihongo.KanaDetector.Extensions;
-using MyNihongo.KanaDetector.Tests.TestHelpers;
-using Xunit;
+namespace MyNihongo.KanaDetector.Tests.Extensions.StringExtensionsTests;
 
-namespace MyNihongo.KanaDetector.Tests.Extensions.StringExtensionsTests
+public class HasKanjiShould
 {
-	public class HasKanjiShould
+	[Theory]
+	[InlineData(null)]
+	[InlineData("")]
+	public void BeFalseIfNullOrEmpty(string input)
 	{
-		[Theory]
-		[InlineData(null)]
-		[InlineData("")]
-		public void BeFalseIfNullOrEmpty(string input)
-		{
-			var result = input.HasKanji();
+		var result = input.HasKanji();
 
-			result
-				.Should()
-				.BeFalse("{0} is null or empty", input);
-		}
+		result
+			.Should()
+			.BeFalse("{0} is null or empty", input);
+	}
 
-		[Fact]
-		public void BeTrueIfOnlyKanji()
-		{
-			var input = WordHelper.GenerateKanji();
-			var result = input.HasKanji();
+	[Fact]
+	public void BeTrueIfOnlyKanji()
+	{
+		var input = WordHelper.GenerateKanji();
+		var result = input.HasKanji();
 
-			result
-				.Should()
-				.BeTrue("{0} is kanji", input);
-		}
+		result
+			.Should()
+			.BeTrue("{0} is kanji", input);
+	}
 
-		[Fact]
-		public void BeTrueIfKanjiAndHiragana()
-		{
-			var input = WordHelper.GenerateKanji() + WordHelper.GenerateHiragana();
-			var result = input.HasKanji();
+	[Fact]
+	public void BeTrueIfKanjiAndHiragana()
+	{
+		var input = WordHelper.GenerateKanji() + WordHelper.GenerateHiragana();
+		var result = input.HasKanji();
 
-			result
-				.Should()
-				.BeTrue("{0} has kanji", input);
-		}
+		result
+			.Should()
+			.BeTrue("{0} has kanji", input);
+	}
 
-		[Fact]
-		public void BeTrueIfKanjiAndKatakana()
-		{
-			var input = WordHelper.GenerateKanji() + WordHelper.GenerateKatakana();
-			var result = input.HasKanji();
+	[Fact]
+	public void BeTrueIfKanjiAndKatakana()
+	{
+		var input = WordHelper.GenerateKanji() + WordHelper.GenerateKatakana();
+		var result = input.HasKanji();
 
-			result
-				.Should()
-				.BeTrue("{0} has kanji", input);
-		}
+		result
+			.Should()
+			.BeTrue("{0} has kanji", input);
+	}
 
-		[Fact]
-		public void BeTrueIfKanjiAndRomaji()
-		{
-			var input = WordHelper.GenerateKanji() + WordHelper.GenerateRomaji();
-			var result = input.HasKanji();
+	[Fact]
+	public void BeTrueIfKanjiAndRomaji()
+	{
+		var input = WordHelper.GenerateKanji() + WordHelper.GenerateRomaji();
+		var result = input.HasKanji();
 
-			result
-				.Should()
-				.BeTrue("{0} has kanji", input);
-		}
+		result
+			.Should()
+			.BeTrue("{0} has kanji", input);
+	}
 
-		[Fact]
-		public void BeFalseIfOnlyHiragana()
-		{
-			var input = WordHelper.GenerateHiragana();
-			var result = input.HasKanji();
+	[Fact]
+	public void BeFalseIfOnlyHiragana()
+	{
+		var input = WordHelper.GenerateHiragana();
+		var result = input.HasKanji();
 
-			result
-				.Should()
-				.BeFalse("{0} is hiragana", input);
-		}
+		result
+			.Should()
+			.BeFalse("{0} is hiragana", input);
+	}
 
-		[Fact]
-		public void BeFalseIfOnlyKatakana()
-		{
-			var input = WordHelper.GenerateKatakana();
-			var result = input.HasKanji();
+	[Fact]
+	public void BeFalseIfOnlyKatakana()
+	{
+		var input = WordHelper.GenerateKatakana();
+		var result = input.HasKanji();
 
-			result
-				.Should()
-				.BeFalse("{0} is katakana", input);
-		}
+		result
+			.Should()
+			.BeFalse("{0} is katakana", input);
+	}
 
-		[Fact]
-		public void BeFalseIfOnlyRomaji()
-		{
-			var input = WordHelper.GenerateRomaji();
-			var result = input.HasKanji();
+	[Fact]
+	public void BeFalseIfOnlyRomaji()
+	{
+		var input = WordHelper.GenerateRomaji();
+		var result = input.HasKanji();
 
-			result
-				.Should()
-				.BeFalse("{0} is romaji", input);
-		}
+		result
+			.Should()
+			.BeFalse("{0} is romaji", input);
 	}
 }
