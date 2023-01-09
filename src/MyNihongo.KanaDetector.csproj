@@ -1,15 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net5.0</TargetFramework>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<LangVersion>latest</LangVersion>
 		<Nullable>enable</Nullable>
 		<PackageId>MyNihongo.KanaDetector</PackageId>
 		<Authors>MyNihongo</Authors>
 		<Product>MyNihongo</Product>
 		<Description>Detect kana, kanji and romaji in characters and strings</Description>
-		<Copyright>Copyright © 2021 MyNihongo</Copyright>
+		<Copyright>Copyright © 2023 MyNihongo</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<Version>1.0.1</Version>
+		<Version>1.0.2</Version>
 		<PackageProjectUrl>https://github.com/MyNihongo/KanaDetector</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/MyNihongo/KanaDetector</RepositoryUrl>
 		<PackageReleaseNotes>https://github.com/MyNihongo/KanaDetector/releases/</PackageReleaseNotes>
