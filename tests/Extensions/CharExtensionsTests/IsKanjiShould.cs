@@ -1,66 +1,60 @@
 ﻿/*
-* Copyright © 2021 MyNihongo
+* Copyright © 2023 MyNihongo
 */
 
-using FluentAssertions;
-using MyNihongo.KanaDetector.Extensions;
-using MyNihongo.KanaDetector.Tests.TestHelpers;
-using Xunit;
+namespace MyNihongo.KanaDetector.Tests.Extensions.CharExtensionsTests;
 
-namespace MyNihongo.KanaDetector.Tests.Extensions.CharExtensionsTests
+public class IsKanjiShould
 {
-	public class IsKanjiShould
+	[Fact]
+	public void BeTrueForKanji()
 	{
-		[Fact]
-		public void BeTrueForKanji()
+		foreach (var @char in CharacterHelper.Kanji())
 		{
-			foreach (var @char in CharacterHelper.Kanji())
-			{
-				var result = @char.IsKanji();
+			var result = @char.IsKanji();
 
-				result
-					.Should()
-					.BeTrue("{0} is kanji", @char);
-			}
+			result
+				.Should()
+				.BeTrue("{0} is kanji", @char);
 		}
+	}
 
-		[Fact]
-		public void BeFalseForAllHiraganaChars()
+	[Fact]
+	public void BeFalseForAllHiraganaChars()
+	{
+		foreach (var @char in CharacterHelper.Hiragana)
 		{
-			foreach (var @char in CharacterHelper.Hiragana)
-			{
-				var result = @char.IsKanji();
+			var result = @char.IsKanji();
 
-				result
-					.Should()
-					.BeFalse("{0} is hiragana", @char);
-			}
+			result
+				.Should()
+				.BeFalse("{0} is hiragana", @char);
 		}
+	}
 
-		[Fact]
-		public void BeFalseForAllKatakanaChars()
+	[Fact]
+	public void BeFalseForAllKatakanaChars()
+	{
+		foreach (var @char in CharacterHelper.Katakana)
 		{
-			foreach (var @char in CharacterHelper.Katakana)
-			{
-				var result = @char.IsKanji();
+			var result = @char.IsKanji();
 
-				result
-					.Should()
-					.BeFalse("{0} is katakana", @char);
-			}
+			result
+				.Should()
+				.BeFalse("{0} is katakana", @char);
 		}
+	}
 
-		[Fact]
-		public void BeFalseForAllRomajiChars()
+	[Fact]
+	public void BeFalseForAllRomajiChars()
+	{
+		foreach (var @char in CharacterHelper.Romaji)
 		{
-			foreach (var @char in CharacterHelper.Romaji)
-			{
-				var result = @char.IsKanji();
+			var result = @char.IsKanji();
 
-				result
-					.Should()
-					.BeFalse("{0} is romaji", @char);
-			}
+			result
+				.Should()
+				.BeFalse("{0} is romaji", @char);
 		}
 	}
 }
