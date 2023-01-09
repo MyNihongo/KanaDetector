@@ -17,6 +17,18 @@ public class IsKanaOrKanjiShould
 			.Should()
 			.BeFalse("{0} is null or empty", input);
 	}
+	
+	[Theory]
+	[InlineData(null)]
+	[InlineData("")]
+	public void BeTrueIfNullOrEmpty(string input)
+	{
+		var result = input.IsKanaOrKanji(true);
+
+		result
+			.Should()
+			.BeTrue("{0} is null or empty", input);
+	}
 
 	[Fact]
 	public void BeTrueIfOnlyHiragana()

@@ -8,10 +8,10 @@ public static class StringExtensions
 {
 	#region Is methods
 
-	public static bool IsHiragana(this string @this)
+	public static bool IsHiragana(this string @this, bool whenEmpty = false)
 	{
 		if (string.IsNullOrEmpty(@this))
-			return false;
+			return whenEmpty;
 
 		for (var i = 0; i < @this.Length; i++)
 			if (!@this[i].IsHiragana())
@@ -20,10 +20,10 @@ public static class StringExtensions
 		return true;
 	}
 
-	public static bool IsKatakana(this string @this)
+	public static bool IsKatakana(this string @this, bool whenEmpty = false)
 	{
 		if (string.IsNullOrEmpty(@this))
-			return false;
+			return whenEmpty;
 
 		for (var i = 0; i < @this.Length; i++)
 			if (!@this[i].IsKatakana())
@@ -32,10 +32,10 @@ public static class StringExtensions
 		return true;
 	}
 
-	public static bool IsKana(this string @this)
+	public static bool IsKana(this string @this, bool whenEmpty = false)
 	{
 		if (string.IsNullOrEmpty(@this))
-			return false;
+			return whenEmpty;
 
 		for (var i = 0; i < @this.Length; i++)
 			if (!@this[i].IsKana())
@@ -44,10 +44,10 @@ public static class StringExtensions
 		return true;
 	}
 
-	public static bool IsKanji(this string @this)
+	public static bool IsKanji(this string @this, bool whenEmpty = false)
 	{
 		if (string.IsNullOrEmpty(@this))
-			return false;
+			return whenEmpty;
 
 		for (var i = 0; i < @this.Length; i++)
 			if (!@this[i].IsKanji())
@@ -56,10 +56,10 @@ public static class StringExtensions
 		return true;
 	}
 
-	public static bool IsKanaOrKanji(this string @this)
+	public static bool IsKanaOrKanji(this string @this, bool whenEmpty = false)
 	{
 		if (string.IsNullOrEmpty(@this))
-			return false;
+			return whenEmpty;
 
 		for (var i = 0; i < @this.Length; i++)
 			if (!@this[i].IsKanaOrKanji())
@@ -68,10 +68,10 @@ public static class StringExtensions
 		return true;
 	}
 
-	public static bool IsRomaji(this string @this)
+	public static bool IsRomaji(this string @this, bool whenEmpty = false)
 	{
 		if (string.IsNullOrEmpty(@this))
-			return false;
+			return whenEmpty;
 
 		for (var i = 0; i < @this.Length; i++)
 			if (!@this[i].IsRomaji())

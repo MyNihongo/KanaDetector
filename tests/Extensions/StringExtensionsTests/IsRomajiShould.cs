@@ -6,7 +6,6 @@ namespace MyNihongo.KanaDetector.Tests.Extensions.StringExtensionsTests;
 
 public sealed class IsRomajiShould
 {
-
 	[Theory]
 	[InlineData(null)]
 	[InlineData("")]
@@ -17,6 +16,18 @@ public sealed class IsRomajiShould
 		result
 			.Should()
 			.BeFalse("{0} is null or empty", input);
+	}
+	
+	[Theory]
+	[InlineData(null)]
+	[InlineData("")]
+	public void BeTrueIfNullOrEmpty(string input)
+	{
+		var result = input.IsRomaji(true);
+
+		result
+			.Should()
+			.BeTrue("{0} is null or empty", input);
 	}
 
 	[Fact]
