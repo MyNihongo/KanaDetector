@@ -97,7 +97,7 @@ public sealed class IsKanaOrKanjiShould
 	}
 
 	[Fact]
-	public void BeTrueIfHasRomaji()
+	public void BeFalseIfHasRomaji()
 	{
 		var input = WordHelper.GenerateHiragana() + WordHelper.GenerateKatakana() + WordHelper.GenerateKanji() + WordHelper.GenerateRomaji();
 		var result = input.IsKanaOrKanji();

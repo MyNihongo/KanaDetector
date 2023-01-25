@@ -12,9 +12,9 @@ public static class WordHelper
 	{
 		var length = RandomNumberGenerator.GetInt32(5, 10);
 
-		return string.Create(length, string.Empty, (span, s) =>
+		return string.Create(length, string.Empty, static (span, _) =>
 		{
-			for (var i = 0; i < length; i++)
+			for (var i = 0; i < span.Length; i++)
 				span[i] = GetRandomChar(Constants.Kana.HiraganaStart, Constants.Kana.HiraganaEnd);
 		});
 	}
@@ -23,9 +23,9 @@ public static class WordHelper
 	{
 		var length = RandomNumberGenerator.GetInt32(5, 10);
 
-		return string.Create(length, string.Empty, (span, s) =>
+		return string.Create(length, string.Empty, static (span, _) =>
 		{
-			for (var i = 0; i < length; i++)
+			for (var i = 0; i < span.Length; i++)
 				span[i] = GetRandomChar(Constants.Kana.KatakanaStart, Constants.Kana.KatakanaEnd);
 		});
 	}
@@ -34,9 +34,9 @@ public static class WordHelper
 	{
 		var length = RandomNumberGenerator.GetInt32(5, 10);
 
-		return string.Create(length, string.Empty, (span, s) =>
+		return string.Create(length, string.Empty, static (span, _) =>
 		{
-			for (var i = 0; i < length; i++)
+			for (var i = 0; i < span.Length; i++)
 			{
 				var (from, to) = i % 2 == 0
 					? (Constants.Kanji.Start, Constants.Kanji.End)
@@ -51,12 +51,26 @@ public static class WordHelper
 	{
 		var length = RandomNumberGenerator.GetInt32(5, 10);
 
-		return string.Create(length, string.Empty, (span, s) =>
+		return string.Create(length, string.Empty, static (span, _) =>
 		{
-			for (var i = 0; i < length; i++)
+			for (var i = 0; i < span.Length; i++)
 			{
 				var index = RandomNumberGenerator.GetInt32(0, CharacterHelper.Romaji.Count);
 				span[i] = CharacterHelper.Romaji[index];
+			}
+		});
+	}
+	
+	public static string GeneratePunctuation()
+	{
+		var length = RandomNumberGenerator.GetInt32(5, 10);
+
+		return string.Create(length, string.Empty, static (span, _) =>
+		{
+			for (var i = 0; i < span.Length; i++)
+			{
+				var index = RandomNumberGenerator.GetInt32(0, CharacterHelper.Punctuation.Count);
+				span[i] = CharacterHelper.Punctuation[index];
 			}
 		});
 	}

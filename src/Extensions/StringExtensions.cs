@@ -68,6 +68,18 @@ public static class StringExtensions
 		return true;
 	}
 
+	public static bool IsKanaOrKanjiOrPunctuation(this string @this, bool whenEmpty = false)
+	{
+		if (string.IsNullOrEmpty(@this))
+			return whenEmpty;
+
+		for (var i = 0; i < @this.Length; i++)
+			if (!@this[i].IsKanaOrKanjiOrPunctuation())
+				return false;
+
+		return true;
+	}
+
 	public static bool IsRomaji(this string @this, bool whenEmpty = false)
 	{
 		if (string.IsNullOrEmpty(@this))
