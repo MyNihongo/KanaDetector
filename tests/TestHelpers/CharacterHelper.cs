@@ -7,7 +7,7 @@ namespace MyNihongo.KanaDetector.Tests.TestHelpers;
 public static class CharacterHelper
 {
 	private static readonly Lazy<IReadOnlyList<char>> HiraganaLazy =
-		new(() => new List<char>
+		new(() => new []
 		{
 			'ぁ','あ','ぃ','い','ぅ','う','ぇ','え','ぉ','お','か','が','き','ぎ','く',
 			'ぐ','け','げ','こ','ご','さ','ざ','し','じ','す','ず','せ','ぜ','そ','ぞ','た',
@@ -18,7 +18,7 @@ public static class CharacterHelper
 		});
 
 	private static readonly Lazy<IReadOnlyList<char>> KatakanaLazy =
-		new(() => new List<char>
+		new(() => new []
 		{
 			'ァ','ア','ィ','イ','ゥ','ウ','ェ','エ','ォ','オ','カ','ガ','キ','ギ','ク',
 			'グ','ケ','ゲ','コ','ゴ','サ','ザ','シ','ジ','ス','ズ','セ','ゼ','ソ','ゾ','タ',
@@ -30,7 +30,7 @@ public static class CharacterHelper
 		});
 
 	private static readonly Lazy<IReadOnlyList<char>> RomajiLazy =
-		new(() => new List<char>
+		new(() => new []
 		{
 			'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x' ,'y','z',
 			'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X' ,'Y','Z',
@@ -38,11 +38,19 @@ public static class CharacterHelper
 			'Ā', 'Ī', 'Ū', 'Ē', 'Ō'
 		});
 
+	private static readonly Lazy<IReadOnlyList<char>> PunctuationLazy =
+		new(() => new[]
+		{
+			'、', '。', '！', '？'
+		});
+
 	public static IReadOnlyList<char> Hiragana => HiraganaLazy.Value;
 
 	public static IReadOnlyList<char> Katakana => KatakanaLazy.Value;
 
 	public static IReadOnlyList<char> Romaji => RomajiLazy.Value;
+	
+	public static IReadOnlyList<char> Punctuation => PunctuationLazy.Value;
 
 	public static IEnumerable<char> Kanji()
 	{

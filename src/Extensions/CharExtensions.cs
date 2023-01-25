@@ -24,6 +24,12 @@ public static class CharExtensions
 	public static bool IsKanaOrKanji(this char @this) =>
 		@this.IsHiragana() || @this.IsKatakana() || @this.IsKanji();
 
+	public static bool IsPunctuation(this char @this) =>
+		@this is Punctuation.Comma or
+			Punctuation.FullStop or
+			Punctuation.ExclamationMark or
+			Punctuation.QuestionMark;
+
 	public static bool IsRomaji(this char @this) =>
 		@this
 			is >= Romaji.EnglishStart and <= Romaji.EnglishEnd or

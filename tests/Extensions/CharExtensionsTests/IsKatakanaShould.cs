@@ -57,4 +57,17 @@ public class IsKatakanaShould
 				.BeFalse("{0} is romaji", @char);
 		}
 	}
+	
+	[Fact]
+	public void BeFalseForPunctuationChars()
+	{
+		foreach (var @char in CharacterHelper.Punctuation)
+		{
+			var result = @char.IsRomaji();
+
+			result
+				.Should()
+				.BeFalse();
+		}
+	}
 }
