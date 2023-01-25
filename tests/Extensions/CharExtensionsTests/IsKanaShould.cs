@@ -4,7 +4,7 @@
 
 namespace MyNihongo.KanaDetector.Tests.Extensions.CharExtensionsTests;
 
-public class IsKanaShould
+public sealed class IsKanaShould
 {
 	[Fact]
 	public void BeTrueForAllHiraganaChars()
@@ -63,7 +63,7 @@ public class IsKanaShould
 	{
 		foreach (var @char in CharacterHelper.Punctuation)
 		{
-			var result = @char.IsRomaji();
+			var result = @char.IsKana();
 
 			result
 				.Should()

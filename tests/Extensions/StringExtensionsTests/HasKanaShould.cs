@@ -4,7 +4,7 @@
 
 namespace MyNihongo.KanaDetector.Tests.Extensions.StringExtensionsTests;
 
-public class HasKanaShould
+public sealed class HasKanaShould
 {
 	[Theory]
 	[InlineData(null)]
