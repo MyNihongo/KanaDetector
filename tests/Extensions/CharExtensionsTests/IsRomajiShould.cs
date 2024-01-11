@@ -57,4 +57,17 @@ public sealed class IsRomajiShould
 				.BeFalse("{0} is kanji", @char);
 		}
 	}
+	
+	[Fact]
+	public void BeFalseForPunctuationChars()
+	{
+		foreach (var @char in CharacterHelper.Punctuation)
+		{
+			var result = @char.IsRomaji();
+
+			result
+				.Should()
+				.BeFalse();
+		}
+	}
 }

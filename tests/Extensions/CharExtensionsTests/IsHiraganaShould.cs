@@ -4,7 +4,7 @@
 
 namespace MyNihongo.KanaDetector.Tests.Extensions.CharExtensionsTests;
 
-public class IsHiraganaShould
+public sealed class IsHiraganaShould
 {
 	[Fact]
 	public void BeTrueForAllHiraganaChars()
@@ -55,6 +55,19 @@ public class IsHiraganaShould
 			result
 				.Should()
 				.BeFalse("{0} is romaji");
+		}
+	}
+	
+	[Fact]
+	public void BeFalseForPunctuationChars()
+	{
+		foreach (var @char in CharacterHelper.Punctuation)
+		{
+			var result = @char.IsHiragana();
+
+			result
+				.Should()
+				.BeFalse();
 		}
 	}
 }
